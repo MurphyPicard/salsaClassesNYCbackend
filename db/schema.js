@@ -23,5 +23,17 @@ var DancerSchema = new Schema({
   message: String
 });
 
-//var Author = mongoose.model("Author", AuthorSchema);
 var Dancer = mongoose.model("Dancer", DancerSchema);
+
+Dancer.create({ firstName: "Benjamin", lastName: "Franklin" }, (err, dancer) => {
+  if (err){
+    console.log(err);
+  }
+  else{
+    console.log(dancer);
+  }
+});
+
+module.exports = {
+  Dancer: Dancer
+};
