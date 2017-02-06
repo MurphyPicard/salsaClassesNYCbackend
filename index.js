@@ -17,52 +17,46 @@ app.use(parser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-
+//see a list of all future dancers
 app.get("/api/dancers", function(req, res){
   Dancer.find({}).then(function(dancers){
     res.json(dancers);
   });
 });
 
-////////copied from another app and may use later//////////////////////////
-// app.get("/api/moods/:title", function(req, res){
-//   Mood.findOne({title: req.params.title}).then(function(mood){
-//     res.json(mood);
-//   });
-// });
-//
-// app.get("/api/foods", function(req, res){
-//   Food.find({}).then(function(foods){
-//     res.json(foods);
-//   });
-// });
-//
-// app.get("/api/foods/:title", function(req, res){
-//   Food.findOne({title: req.params.title}).then(function(food){
-//     res.json(food);
-//   });
-// });
-//
-// app.post("/api/foods", function(req, res){
-//   Food.create(req.body).then(function(food){
-//     res.json(food);
-//   });
-// });
-//
-// app.delete("/api/foods/:title", function(req, res){
-//   Food.findOneAndRemove({title: req.params.title}).then(function(){
-//     res.json({success: true });
-//   });
-// });
-//
-// app.put("/api/foods", function(req, res){
-//   console.log("this is req.body: " + req.body);
-//   Food.findOneAndUpdate({_id: req.body._id}, req.body)
-//   .then(function(food){
-//     res.json(req.body);
-//   });
-// });
+// comment out below except for class
+// this works 100%, needed for class but not in real life
+app.get("/api/dancers/:lastName", function(req, res){
+  Dancer.findOne({lastName: req.params.lastName}).then(function(dancer){
+    res.json(dancer);
+  });
+});
 
+// works 100% in postman
+// either click body raw json OR x-www-form-urlencoded firstName 'Ara' for example
+app.post("/api/dancers", function(req, res){
+  Dancer.create(req.body).then(function(dancer){
+    res.json(dancer);
+  });
+});
+
+//now works 100%, no underscore needed in url, just id#
+app.delete("/api/dancers/:_id", function(req, res){
+  Dancer.findOneAndRemove({_id: req.params._id}).then(function(){
+    res.json({success: true });
+  });
+});
+
+//testing in postman///////////////////////////////////////////////////////////
+app.put("/api/dancers/:_id", function(req, res){
+  // console.log("this is req.body: " + req.body);
+  Dancer.findOneAndUpdate({_id: req.body._id}, req.body)
+  .then(function(dancer){
+    res.json(req.body);
+  });
+});
+
+//according to line 13
 app.listen(app.get("port"), function(){
   console.log("*** *** *** !!! !!! Ara, it's on 3001 !!! !!! *** *** ***");
 });
