@@ -7,6 +7,7 @@ mongoose.Promise = global.Promise;
 var cors = require('cors');
 var app     = express();
 app.use(cors());
+
 var Dancer = mongoose.model("Dancer");
 
 app.set("port", process.env.PORT || 3001);
@@ -18,7 +19,7 @@ app.use(parser.urlencoded({     // to support URL-encoded bodies
 
 
 app.get("/api/dancers", function(req, res){
-  Mood.find({}).then(function(dancers){
+  Dancer.find({}).then(function(dancers){
     res.json(dancers);
   });
 });
@@ -63,5 +64,5 @@ app.get("/api/dancers", function(req, res){
 // });
 
 app.listen(app.get("port"), function(){
-  console.log("*** *** *** !!! !!! Ara, it's ON !!! !!! *** *** ***");
+  console.log("*** *** *** !!! !!! Ara, it's on 3001 !!! !!! *** *** ***");
 });

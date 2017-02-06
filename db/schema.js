@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/dancers");  // in if/else below
+// mongoose.connect("mongodb://localhost/dancers");  // in if/else below
 
 var db = mongoose.connection;
 
@@ -24,14 +24,14 @@ var DancerSchema = new Schema({
 
 var Dancer = mongoose.model("Dancer", DancerSchema);
 
-Dancer.create({ firstName: "Benjamin", lastName: "Franklin" }, (err, dancer) => {
-  if (err){
-    console.log(err);
-  }
-  else{
-    console.log(dancer);
-  }
-});
+// Dancer.create({ firstName: "Benjamin", lastName: "Franklin" }, (err, dancer) => {
+//   if (err){
+//     console.log(err);
+//   }
+//   else{
+//     console.log(dancer);
+//   }
+// });
 
 var options = {
   server: {
@@ -47,15 +47,11 @@ var options = {
   }
 };
 ////////////////////////////////////Check this if else conditional later
-//Then put it in here:
-if(process.env.MONGODB_URI) {
+if(process.env.MONGODB_URI){
   mongoose.connect(process.env.MONGODB_URI, options);
 } else {
-
 // Connect to local database
 mongoose.connect("mongodb://localhost/dancers");
 }
 
-module.exports = {
-  Dancer: Dancer
-};
+module.exports = mongoose;
