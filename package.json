@@ -1,0 +1,26 @@
+{
+  "name": "salsaClassesNYC",
+  "version": "1.0.0",
+  "description": "a the backend of a website salsaClassesNYC.com, built for my brother Monolo Davis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.salsaClassesNYC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/murphypicard/salsaClassesNYC/issues"
+  },
+  "homepage": "https://github.com/murphypicard/salsaClassesNYC#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.7"
+  }
+}
