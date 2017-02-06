@@ -47,10 +47,11 @@ app.delete("/api/dancers/:_id", function(req, res){
   });
 });
 
-//testing in postman///////////////////////////////////////////////////////////
+//works 100% example x-www-form-urlencoded firstName Ara no quotes or
+//body raw json
 app.put("/api/dancers/:_id", function(req, res){
-  // console.log("this is req.body: " + req.body);
-  Dancer.findOneAndUpdate({_id: req.body._id}, req.body)
+  console.log("this is json.stringify(req.body) " + JSON.stringify(req.params));
+  Dancer.findOneAndUpdate({_id: req.params._id}, req.body)
   .then(function(dancer){
     res.json(req.body);
   });
