@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/dancers");
+mongoose.connect("mongodb://localhost/dancers");  // in if/else below
 
 var db = mongoose.connection;
 
@@ -14,7 +14,6 @@ db.once("open", () => {
 });
 
 var Schema = mongoose.Schema;
-
 var DancerSchema = new Schema({
   firstName: String,
   lastName: String,
@@ -33,6 +32,29 @@ Dancer.create({ firstName: "Benjamin", lastName: "Franklin" }, (err, dancer) => 
     console.log(dancer);
   }
 });
+
+var options = {
+  server: {
+    socketOptions: {
+      keepAlive: 300000, connectTimeoutMS: 30000
+    }
+  },
+  replset: {
+    socketOptions: {
+      keepAlive: 300000,
+      connectTimeoutMS : 30000
+    }
+  }
+};
+////////////////////////////////////Check this if else conditional later
+//Then put it in here:
+if(process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI, options);
+} else {
+
+// Connect to local database
+mongoose.connect("mongodb://localhost/dancers");
+}
 
 module.exports = {
   Dancer: Dancer

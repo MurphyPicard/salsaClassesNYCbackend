@@ -1,0 +1,23 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Adams",
+    "phoneNumber": "555-123-7474",
+    "email": "adams@gmail.com",
+    "message": "I am the second president"
+  },
+  {
+    "firstName": "Barack",
+    "lastName": "Obama",
+    "phoneNumber": "555-323-7474",
+    "email": "obama@gmail.com",
+    "message": "I am the 2nd to last president"
+  },
+  {
+    "firstName": "Donald",
+    "lastName": "Trump",
+    "phoneNumber": "555-127-7474",
+    "email": "trump@gmail.com",
+    "message": "I am the last president"
+  }
+]
