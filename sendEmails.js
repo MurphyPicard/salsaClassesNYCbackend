@@ -1,23 +1,25 @@
 'use strict';
 const nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
+
 
 nodemailer.nodemailerFunction = function(dancer){
 
 // create reusable transporter object using the default SMTP transport
-let transporter = nodemailer.createTransport({
+let transporter = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
     auth: {
-        user: 'ayaghsizian@gmail.com',
-        pass: 'chus2bhapy'
+        user: process.env.GMAIL_EMAIL,
+        pass: process.env.GMAIL_PASS
     }
-});
+}));
 
 // setup email data with unicode symbols
 let mailOptions = {
-    from: 'ayaghsizian@gmail.com', // sender address
-    to: `${dancer.email}`, // list of receivers
+    from: process.env.GMAIL_EMAIL, // sender address
+    to: `${dancer.email}, ayaghsizian@gmail.com`, // list of receivers
     subject: `Hello ${dancer.firstName}`, // Subject line
-    text: 'aras short message', // plain text body
+    text: 'Thanks for your interest in Salsa Sancing with us.', // plain text body
     html: '<b>Hello world ?</b>' // html body
 };
 

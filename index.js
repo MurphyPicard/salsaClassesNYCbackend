@@ -1,17 +1,18 @@
 var express = require("express");
 var parser  = require("body-parser");
 var mongoose= require("./db/schema");
+require('dotenv').config();
 const nodemailer = require('./sendEmails');
 
 mongoose.Promise = global.Promise;
 
 var cors = require('cors');
-var app     = express();
+var app  = express();
 app.use(cors());
 
 var Dancer = mongoose.model("Dancer");
 
-app.set("port", process.env.PORT || 3001);
+app.set("port", process.env.PORT);
 
 app.use(parser.json({extended: true})); //to support JSON encoded-bodies
 app.use(parser.urlencoded({     // to support URL-encoded bodies
@@ -34,7 +35,7 @@ app.get("/api/dancers/:lastName", function(req, res){
 });
 
 // works 100% in postman
-// either click body raw json OR x-www-form-urlencoded firstName 'Ara' for example
+// either click body raw json OR x-www-form-urlencoded firstName Ara for example
 app.post("/api/dancers", function(req, res){
   Dancer.create(req.body).then(function(dancer){
     nodemailer.nodemailerFunction(dancer);
