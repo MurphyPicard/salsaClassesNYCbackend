@@ -1,6 +1,7 @@
 var express = require("express");
 var parser  = require("body-parser");
 var mongoose= require("./db/schema");
+const nodemailer = require('./sendEmails');
 
 mongoose.Promise = global.Promise;
 
@@ -36,6 +37,7 @@ app.get("/api/dancers/:lastName", function(req, res){
 // either click body raw json OR x-www-form-urlencoded firstName 'Ara' for example
 app.post("/api/dancers", function(req, res){
   Dancer.create(req.body).then(function(dancer){
+    nodemailer.nodemailerFunction(dancer);
     res.json(dancer);
   });
 });
@@ -56,6 +58,9 @@ app.put("/api/dancers/:_id", function(req, res){
     res.json(req.body);
   });
 });
+
+
+
 
 //according to line 13
 app.listen(app.get("port"), function(){
