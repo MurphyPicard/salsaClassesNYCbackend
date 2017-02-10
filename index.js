@@ -19,7 +19,6 @@ app.use(parser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-
 //see a list of all future dancers
 app.get("/api/dancers", function(req, res){
   Dancer.find({}).then(function(dancers){
@@ -39,6 +38,10 @@ app.get("/api/dancers/:lastName", function(req, res){
 // either click body raw json OR x-www-form-urlencoded firstName Ara for example
 app.post("/api/dancers", function(req, res){
   Dancer.create(req.body).then(function(dancer){
+    console.log("request");
+    console.log(req);
+    console.log("req.body");
+    console.log(req.body);
     nodemailer.nodemailerFunction(dancer);
     res.json(dancer);
   });
