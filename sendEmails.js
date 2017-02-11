@@ -18,9 +18,9 @@ let transporter = nodemailer.createTransport(smtpTransport({
 let mailOptions = {
     from: process.env.GMAIL_EMAIL, // sender address
     to: `${dancer.email}, ayaghsizian@gmail.com`, // list of receivers
-    subject: `Hello ${dancer.firstName}`, // Subject line
-    text: 'Thanks for your interest in Salsa Sancing with us.', // plain text body
-    html: '<b>Hello world ?</b>' // html body
+    subject: `Hello ${dancer.firstName},`, // Subject line
+    text: 'Thanks for your interest in signing up with SalsaClassesNYC.', // plain text body
+    html: '<b>Thanks for your interest in signing up with SalsaClassesNYC.</b>' // html body
 };
 
 // send mail with defined transport object
