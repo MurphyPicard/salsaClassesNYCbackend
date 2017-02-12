@@ -17,14 +17,28 @@ let transporter = nodemailer.createTransport(smtpTransport({
 // setup email data with unicode symbols
 let mailOptions = {
     from: process.env.GMAIL_EMAIL, // sender address
-    to: `${dancer.email}, ayaghsizian@gmail.com`, // list of receivers
+    to: `${dancer.email}, salsaClassesNYC@gmail.com`, // list of receivers
     subject: `Hello ${dancer.firstName},`, // Subject line
-    text: 'Thanks for your interest in signing up with SalsaClassesNYC.', // plain text body
-    html: '<b>Thanks for your interest in signing up with SalsaClassesNYC.</b>' // html body
+    text: `Thank you for your interest in signing up with SalsaClassesNYC.`, // plain text body
+    html: `<b>Hi ${dancer.firstName} ${dancer.lastName},
+              <br><br>
+              Thanks for your interest in signing up with SalsaClassesNYC.  We
+              have your phoneNumber as ${dancer.phoneNumber} and your email as
+              ${dancer.email} and we will be sending a followup email shortly.
+              If any information is incorrect please let us know by
+              re-submitting the correct information as soon as possible.
+              <br><br>
+              Best Regards,
+              <br><br>
+              The SalsaClassesNYC team.
+              <br><br>
+              <br><br>
+              Your message to us: ${dancer.message}
+              </b>` // html body
 };
 
 // send mail with defined transport object
-transporter.sendMail(mailOptions, (error, info) => {
+transporter.sendMail(mailOptions, function(error, info) {
     if (error) {
         return console.log(error);
     }
