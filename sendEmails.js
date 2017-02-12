@@ -26,7 +26,9 @@ let mailOptions = {
               have your phone number as ${dancer.phoneNumber} and your email as
               ${dancer.email} and we will be sending a followup email shortly.
               If any information is incorrect please let us know by
-              re-submitting the correct information as soon as possible.
+              re-submitting the correct information as soon as possible.  We're
+              looking forward to sharing the dance floor with you.
+
               <br><br>
               Best Regards,
               <br><br>
