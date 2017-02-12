@@ -23,14 +23,14 @@ let mailOptions = {
     html: `<b>Hi ${dancer.firstName} ${dancer.lastName},
               <br><br>
               Thanks for your interest in signing up with SalsaClassesNYC.  We
-              have your phoneNumber as ${dancer.phoneNumber} and your email as
+              have your phone number as ${dancer.phoneNumber} and your email as
               ${dancer.email} and we will be sending a followup email shortly.
               If any information is incorrect please let us know by
               re-submitting the correct information as soon as possible.
               <br><br>
               Best Regards,
               <br><br>
-              The SalsaClassesNYC team.
+              The SalsaClassesNYC team
               <br><br>
               <br><br>
               Your message to us: ${dancer.message}
