@@ -9,14 +9,14 @@ nodemailer.nodemailerFunction = function(dancer){
 let transporter = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
     auth: {
-        user: process.env.GMAIL_EMAIL,
-        pass: process.env.GMAIL_PASS
+        user: "salsaClassesNYC@gmail.com",
+        pass: 'conobanana12'
     }
 }));
 
 // setup email data with unicode symbols
 let mailOptions = {
-    from: process.env.GMAIL_EMAIL, // sender address
+    from: "salsaClassesNYC@gmail.com", // sender address
     to: `${dancer.email}, salsaClassesNYC@gmail.com`, // list of receivers
     subject: `Hello ${dancer.firstName},`, // Subject line
     text: `Thank you for your interest in signing up with SalsaClassesNYC.`, // plain text body
