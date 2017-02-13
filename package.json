@@ -24,7 +24,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.14.1",
     "mongoose": "^4.8.2",
-    "node": "^6.9.5",
+    "node": "0.0.0",
     "nodemailer": "^3.0.2",
     "nodemailer-smtp-transport": "^2.7.2",
     "start": "^5.1.0"
