@@ -51,7 +51,7 @@ if(process.env.MONGODB_URI){
   mongoose.connect(process.env.MONGODB_URI, options);
 } else {
 // Connect to local database
-mongoose.connect("mongodb://localhost/dancers");
+mongoose.connect("mongodb://localhost:27017/dancers");
 }
 
 module.exports = mongoose;
