@@ -67,7 +67,8 @@ app.put("/api/dancers/:_id", function(req, res){
 
 
 //according to line 13
-app.listen(process.env.PORT || 3001 ), function(){
-  console.log("*** *** *** !!! !!! Ara, it's on 3001 maaayybe !!! !!! *** *** ***");
-});
+app.listen(process.env.PORT || 3001 )
+// , function(){
+//   console.log("*** *** *** !!! !!! Ara, it's on 3001 maaayybe !!! !!! *** *** ***");
+// };
 // app.listen(app.get("port")
