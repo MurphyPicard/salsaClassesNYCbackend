@@ -41,6 +41,7 @@ let mailOptions = {
 
 // send mail with defined transport object
 transporter.sendMail(mailOptions, function(error, info) {
+    console.log(`this is dancer.email ${dancer.email}`);
     if (error) {
         return console.log(error);
     }
